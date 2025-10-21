@@ -9,7 +9,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "coachs")
-public class Coach {
+public class Coach extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
