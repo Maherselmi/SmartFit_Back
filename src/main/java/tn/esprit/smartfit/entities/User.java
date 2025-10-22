@@ -16,5 +16,5 @@ public class User {
 
     private String email;
     private String password;
-    private String role; // "COACH" ou "CLIENT"
+    private String role;
 }

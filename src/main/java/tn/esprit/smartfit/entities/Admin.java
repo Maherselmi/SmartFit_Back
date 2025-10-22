@@ -1,15 +1,18 @@
 package tn.esprit.smartfit.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @Data
 @RequiredArgsConstructor
 @Entity
-@Table(name = "coachs")
-public class Coach extends User {
+@Table(name = "addmins")
+public class Admin extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +20,6 @@ public class Coach extends User {
 
     private String nom;
     private String prenom;
-    private String specialite;
     private String telephone;
+
 }
