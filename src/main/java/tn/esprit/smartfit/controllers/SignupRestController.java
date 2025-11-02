@@ -8,7 +8,7 @@ import tn.esprit.smartfit.entities.Coach;
 import tn.esprit.smartfit.services.SignupService;
 @RestController
 @RequestMapping("/api/signup")
-@CrossOrigin(origins = "4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SignupRestController {
     private final SignupService signupService;
 
