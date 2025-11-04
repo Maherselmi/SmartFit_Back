@@ -9,7 +9,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "coachs")
-public class Coach extends User {
+public class Coach {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +18,6 @@ public class Coach extends User {
     private String nom;
     private String prenom;
     private String specialite;
+    private String email;
     private String telephone;
 }

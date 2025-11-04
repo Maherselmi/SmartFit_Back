@@ -5,9 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.smartfit.entities.Planning;
 import tn.esprit.smartfit.entities.Client;
-import tn.esprit.smartfit.entities.Coach;
 import tn.esprit.smartfit.ripositories.ClientRepository;
-import tn.esprit.smartfit.ripositories.CoachRepository;
 import tn.esprit.smartfit.services.PlanningService;
 
 import java.util.List;
@@ -22,7 +20,6 @@ public class PlanningController {
 
     private final PlanningService planningService;
     private final ClientRepository clientRepository;
-    private final  CoachRepository coachRepository;
 
     // ✅ Ajouter une séance
     @PostMapping("/add")
@@ -32,14 +29,12 @@ public class PlanningController {
             @RequestBody Planning planning) {
 
         Optional<Client> client = clientRepository.findById(clientId);
-        Optional<Coach> coach = coachRepository.findById(coachId);
 
-        if (client.isEmpty() || coach.isEmpty()) {
+        if (client.isEmpty()) {
             return ResponseEntity.badRequest().body("Client ou Coach introuvable");
         }
 
         planning.setClient(client.get());
-        planning.setCoach(coach.get());
 
         Planning saved = planningService.addSeance(planning);
         return ResponseEntity.ok(saved);
